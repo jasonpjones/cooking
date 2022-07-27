@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import RecipeList from './RecipeList';
 import '../css/app.css';
-//import { uuid } from 'uuidv4';
+import { v4 as uuidv4 } from 'uuid';
 
 
 function App() {
@@ -9,13 +9,13 @@ function App() {
   
     function handleRecipeAdd() {
       const newRecipe = {
-        id: new Date().toString(),
+        id: uuidv4(),
         name: 'New',
         servings: 1,
         cookTime: '1:00',
         instructions: 'instru',
         ingredients: [
-          { id: new Date().toString(), name: 'Name', amount: '1 Tbs'}
+          { id: uuidv4(), name: 'Name', amount: '1 Tbs'}
         ]
       }
       setRecipes([...recipes, newRecipe])
