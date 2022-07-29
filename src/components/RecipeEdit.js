@@ -90,19 +90,21 @@ export default function RecipeEdit({ recipe }) {
       </div>
       <br />
       <label className="recipe-edit__label">Ingredients</label>
-      <div className="recipe-edit__ingredient-grid">
-        <div>Name</div>
-        <div>Amount</div>
-        <div></div>
-        {recipe.ingredients.map((ingredient) => (
-          <RecipeIngredientEdit
-            key={ingredient.id}
-            ingredient={ingredient}
-            handleIngredientChange={handleIngredientChange}
-            handleIngredientDelete={handleIngredientDelete}
-          />
-        ))}
-      </div>
+      { recipe.ingredients.length > 0 &&
+        <div className="recipe-edit__ingredient-grid">
+          <div>Name</div>
+          <div>Amount</div>
+          <div></div>
+          {recipe.ingredients.map((ingredient) => (
+            <RecipeIngredientEdit
+              key={ingredient.id}
+              ingredient={ingredient}
+              handleIngredientChange={handleIngredientChange}
+              handleIngredientDelete={handleIngredientDelete}
+            />
+          ))}
+        </div>
+      }
       <div className="recipe-edit__add-ingredient-btn-container">
         <button
           className="btn btn--primary"
